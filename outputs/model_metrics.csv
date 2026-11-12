@@ -1,0 +1,29 @@
+model,algorithm,evaluation,accuracy,f1_macro,log_loss
+Face recognition,Baseline (class prior),Leave-one-expression-out CV (48 images),0.25,0.1,1.3863
+Face recognition,Baseline (class prior),Hold-out: surprised expression (16 images),0.25,0.1,1.3863
+Face recognition,Logistic Regression,Leave-one-expression-out CV (48 images),0.9375,0.9365,0.0833
+Face recognition,Logistic Regression,Hold-out: surprised expression (16 images),0.8125,0.7818,0.2345
+Face recognition,Random Forest,Leave-one-expression-out CV (48 images),1.0,1.0,0.2253
+Face recognition,Random Forest,Hold-out: surprised expression (16 images),1.0,1.0,0.3639
+Face recognition,XGBoost,Leave-one-expression-out CV (48 images),0.8333,0.8304,0.4528
+Face recognition,XGBoost,Hold-out: surprised expression (16 images),0.5625,0.4485,0.7085
+Voiceprint verification,Baseline (class prior),Leave-one-recording-out CV: original clips (8),0.0,0.0,1.9459
+Voiceprint verification,Baseline (class prior),Leave-one-recording-out CV: all versions (32),0.0,0.0,1.9459
+Voiceprint verification,Baseline (class prior),Hold-out: second recordings (4 original clips),0.25,0.1,1.3863
+Voiceprint verification,Logistic Regression,Leave-one-recording-out CV: original clips (8),0.875,0.8667,0.2405
+Voiceprint verification,Logistic Regression,Leave-one-recording-out CV: all versions (32),0.9062,0.9028,0.2436
+Voiceprint verification,Logistic Regression,Hold-out: second recordings (4 original clips),1.0,1.0,0.0724
+Voiceprint verification,Random Forest,Leave-one-recording-out CV: original clips (8),1.0,1.0,0.63
+Voiceprint verification,Random Forest,Leave-one-recording-out CV: all versions (32),0.9375,0.9373,0.6913
+Voiceprint verification,Random Forest,Hold-out: second recordings (4 original clips),1.0,1.0,0.555
+Voiceprint verification,XGBoost,Leave-one-recording-out CV: original clips (8),0.625,0.6417,0.7451
+Voiceprint verification,XGBoost,Leave-one-recording-out CV: all versions (32),0.625,0.6322,0.727
+Voiceprint verification,XGBoost,Hold-out: second recordings (4 original clips),0.75,0.6667,0.6059
+Product recommendation,Baseline (class prior),Customer-grouped 5-fold CV (150 transactions),0.2267,0.1098,1.6021
+Product recommendation,Baseline (class prior),Hold-out: notebook 01 test split (31 transactions),0.2258,0.0737,1.6028
+Product recommendation,Logistic Regression,Customer-grouped 5-fold CV (150 transactions),0.1667,0.1398,1.831
+Product recommendation,Logistic Regression,Hold-out: notebook 01 test split (31 transactions),0.1613,0.1096,1.771
+Product recommendation,Random Forest,Customer-grouped 5-fold CV (150 transactions),0.2133,0.1782,1.8711
+Product recommendation,Random Forest,Hold-out: notebook 01 test split (31 transactions),0.1935,0.15,1.8461
+Product recommendation,XGBoost,Customer-grouped 5-fold CV (150 transactions),0.1933,0.1647,2.2292
+Product recommendation,XGBoost,Hold-out: notebook 01 test split (31 transactions),0.1935,0.1196,2.0552
