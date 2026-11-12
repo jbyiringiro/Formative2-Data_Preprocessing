@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Generated when notebook 03 runs locally (augmented audio and copies of the outputs);
+# the tracked versions live in data/ and models/
+outputs/Audio_Outputs/
+outputs/audio output/
