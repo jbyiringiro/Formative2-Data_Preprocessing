@@ -1,0 +1,7 @@
+model,algorithm,threshold,FAR,FRR,open_set_error
+Face recognition,Logistic Regression,1.0,0.0,1.0,1.0
+Face recognition,Random Forest,0.85,0.0,0.2708,0.2708
+Face recognition,XGBoost,0.412,0.625,0.2083,0.8333
+Voiceprint verification,Logistic Regression,0.83,0.25,0.25,0.5
+Voiceprint verification,Random Forest,0.567,0.125,0.6562,0.7812
+Voiceprint verification,XGBoost,0.97,0.0,1.0,1.0
