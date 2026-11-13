@@ -1,6 +1,6 @@
 # Multimodal User Authentication & Product Recommendation
 
-Formative 2 — Multimodal Data Preprocessing.
+Formative 2 Multimodal Data Preprocessing.
 
 A user is authenticated with **face recognition**, the **product recommendation model** predicts the product category they are likely to buy, and the prediction is only released after **voiceprint verification** confirms the same user. Any failed check ends in *access denied*.
 
@@ -55,26 +55,26 @@ outputs/
 
 ## Pipeline
 
-### 1. Data merge and EDA — `notebooks/01_data_merge_eda_product_model.ipynb`
+### 1. Data merge and EDA `notebooks/01_data_merge_eda_product_model.ipynb`
 
 - **Cleaning:** 5 exact duplicate social-profile rows removed; `purchase_date` converted to datetime; 10 missing `customer_rating` values kept (not imputed, and not used as a feature).
 - **Join key:** social IDs (`A178`) and transaction IDs (`178`) are standardised into `customer_id_key`.
 - **Merge:** social records are aggregated to one row per customer (mean engagement, mean purchase interest, record and platform counts, sentiment counts), then **left-joined onto transactions** (`validate="many_to_one"`). All 150 transactions are kept; 117 have a matching social profile, 33 do not (`has_social_profile = 0`).
 - **EDA:** summary statistics, variable types, distributions, outlier boxplots, correlation heatmaps, and features by product category.
 
-### 2. Images — `notebooks/02_image_processing_face_model.ipynb`
+### 2. Images `notebooks/02_image_processing_face_model.ipynb`
 
 - 4 members × 3 expressions (neutral, smiling, surprised) = 12 images, resized to 128 × 128.
 - Augmentations per image: 90° rotation, horizontal flip, grayscale.
 - Features: normalised colour histograms, 32 bins × 3 channels = 96 features → `data/image_features.csv`.
 
-### 3. Audio — `notebooks/03_audio_processing_voiceprint_model.ipynb`
+### 3. Audio `notebooks/03_audio_processing_voiceprint_model.ipynb`
 
 - 4 members × 2 recordings = 8 clips; waveforms and spectrograms plotted and interpreted for each member.
 - Augmentations per recording: pitch shift (+1 semitone), time stretch (0.95×), background noise (SNR 25 dB).
 - Features: 13 MFCCs plus spectral roll-off, RMS energy, spectral centroid, spectral bandwidth and zero-crossing rate (mean and std of each) = 36 features → `data/audio_features.csv`.
 
-### 4. Model training and evaluation — `src/`, `notebooks/04_model_training_evaluation.ipynb`
+### 4. Model training and evaluation `src/`, `notebooks/04_model_training_evaluation.ipynb`
 
 Logistic Regression, Random Forest and XGBoost are compared for every model against a no-skill baseline, always on data the model has never seen:
 
@@ -88,7 +88,7 @@ Logistic Regression, Random Forest and XGBoost are compared for every model agai
 - **Face and voice** are selected on the verification error (FAR + FRR); the **product** model on macro F1.
 - **Product data:** no column (including amount, rating and date) predicts the product category better than chance, so the product model performs at baseline level (most-frequent-category accuracy 0.23). See notebook 04, section 6.
 
-### 5. Multimodal decision logic — `src/inference.py`
+### 5. Multimodal decision logic `src/inference.py`
 
 1. Face recognised as a team member with confidence ≥ 0.85, otherwise **access denied**.
 2. The member's customer profile is sent to the product model; the prediction is withheld.
